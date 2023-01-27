@@ -5,9 +5,7 @@ const distFolder = './dist';
 const srcFolder = './src';
 
 export const path = {
-   dist: {
-      files: `${distFolder}/files/`,
-   },
+   dist: `${distFolder}/files/`,
    src: {
       files: `${srcFolder}/files/**/*.*`,
    },
