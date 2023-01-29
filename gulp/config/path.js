@@ -5,11 +5,15 @@ const distFolder = './dist';
 const srcFolder = './src';
 
 export const path = {
-   dist: `${distFolder}/files/`,
+   dist: {
+      files: `${distFolder}/files/`,
+   },
    src: {
       files: `${srcFolder}/files/**/*.*`,
    },
-   watch: {},
+   watch: {
+      files: `${srcFolder}/files/**/*.*`,
+   },
    clean: distFolder,
    distFolder,
    srcFolder,
