@@ -19,6 +19,7 @@
    },
    "homepage": "https://github.com/Pasha-Kovalskiy/gulp-assembly#readme",
    "devDependencies": {
+      "browser-sync": "^2.27.11",
       "del": "^7.0.0",
       "gulp": "^4.0.2",
       "gulp-file-include": "^2.3.0",
