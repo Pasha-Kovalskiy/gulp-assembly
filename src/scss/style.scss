@@ -1,0 +1,24 @@
+body {
+   background-color: black;
+   background: url('@img/accessories.jpg') 0 0 no-repeat;
+
+   span {
+      color: red;
+   }
+
+   .div {
+      color: wheat;
+   }
+}
+
+@media (max-width: 768px) {
+   span {
+      font-size: 20px;
+   }
+}
+
+@media (max-width: 768px) {
+   body {
+      background-color: green;
+   }
+}
