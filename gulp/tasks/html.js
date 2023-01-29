@@ -21,5 +21,6 @@ export const html = () => {
             },
          })
       )
-      .pipe(app.gulp.dest(app.path.dist.html));
+      .pipe(app.gulp.dest(app.path.dist.html))
+      .pipe(app.plugins.browserSync.stream());
 };
