@@ -30,6 +30,8 @@
       "gulp-replace": "^1.1.4",
       "gulp-sass": "^5.1.0",
       "gulp-version-number": "^0.2.4",
-      "sass": "^1.57.1"
+      "sass": "^1.57.1",
+      "webpack": "^5.75.0",
+      "webpack-stream": "^7.0.0"
    }
 }
