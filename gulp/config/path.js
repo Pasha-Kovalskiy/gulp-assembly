@@ -6,12 +6,17 @@ const srcFolder = './src';
 
 export const path = {
    dist: {
+      html: `${distFolder}/`,
       files: `${distFolder}/files/`,
    },
    src: {
+      html: `${srcFolder}/*.html`,
       files: `${srcFolder}/files/**/*.*`,
    },
-   watch: {},
+   watch: {
+      html: `${srcFolder}/**/*.html`,
+      files: `${srcFolder}/files/**/*.*`,
+   },
    clean: distFolder,
    distFolder,
    srcFolder,
