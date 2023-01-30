@@ -7,6 +7,8 @@ import { plugins } from './gulp/config/plugins.js';
 
 // Global object of our gulp assembly
 global.app = {
+   isBuild: process.argv.includes('--build'),
+   isDev: !process.argv.includes('--build'),
    path,
    gulp,
    plugins,
@@ -27,6 +29,8 @@ import {
    fontsStyle,
 } from './gulp/tasks/fonts.js';
 import { svgIcons } from './gulp/tasks/svgIcons.js';
+import { zip } from './gulp/tasks/zip.js';
+import { ftp } from './gulp/tasks/ftp.js';
 
 const copyFiles = gulp.parallel(copy, html, scss, js, images);
 const fonts = gulp.series(otfToTtf, ttfToWoff, ttfToWoff2, fontsStyle);
@@ -43,8 +47,14 @@ const watcher = () => {
 
 // Scripts for executing tasks
 const dev = gulp.series(mainTask, gulp.parallel(watcher, server));
+const build = gulp.series(mainTask);
+const deployZIP = gulp.series(mainTask, zip);
+const deployFTP = gulp.series(mainTask, ftp);
 
 // Assembly gulp in action
 gulp.task('svgicons', svgIcons);
 gulp.task('fonts', fonts);
-gulp.task('default', dev);
+gulp.task('build', build);
+gulp.task('dev', dev);
+gulp.task('zip', deployZIP);
+gulp.task('ftp', deployFTP);

@@ -10,23 +10,26 @@ const sass = gulpSass(dartSass);
 
 export const scss = () => {
    return app.gulp
-      .src(app.path.src.scss, { sourcemaps: true })
+      .src(app.path.src.scss, { sourcemaps: app.isDev })
       .pipe(app.plugins.replace(/@img\//g, '../img/'))
       .pipe(
          sass({
             outputStyle: 'expanded',
          })
       )
-      .pipe(gcmq())
+      .pipe(app.plugins.if(app.isBuild, gcmq()))
       .pipe(
-         autoPrefixer({
-            grid: true,
-            overrideBrowserlist: ['last 5 versions'],
-            cascade: true,
-         })
+         app.plugins.if(
+            app.isBuild,
+            autoPrefixer({
+               grid: true,
+               overrideBrowserlist: ['last 5 versions'],
+               cascade: true,
+            })
+         )
       )
       .pipe(app.gulp.dest(app.path.dist.css))
-      .pipe(cleanCSS())
+      .pipe(app.plugins.if(app.isBuild, cleanCSS()))
       .pipe(
          rename({
             extname: '.min.css',
