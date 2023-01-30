@@ -11,6 +11,7 @@ export const path = {
       css: `${distFolder}/css/`,
       html: `${distFolder}/`,
       files: `${distFolder}/files/`,
+      fonts: `${distFolder}/fonts/`,
    },
    src: {
       images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,

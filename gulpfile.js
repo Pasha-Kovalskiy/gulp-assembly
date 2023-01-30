@@ -20,9 +20,16 @@ import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
 import { images } from './gulp/tasks/images.js';
+import {
+   otfToTtf,
+   ttfToWoff,
+   ttfToWoff2,
+   fontsStyle,
+} from './gulp/tasks/fonts.js';
 
 const copyFiles = gulp.parallel(copy, html, scss, js, images);
-const mainTask = gulp.series(reset, copyFiles);
+const fonts = gulp.series(otfToTtf, ttfToWoff, ttfToWoff2, fontsStyle);
+const mainTask = gulp.series(reset, gulp.series(fonts, copyFiles));
 
 // Watcher
 const watcher = () => {
@@ -37,4 +44,5 @@ const watcher = () => {
 const dev = gulp.series(mainTask, gulp.parallel(watcher, server));
 
 // Assembly gulp in action
+gulp.task('fonts', fonts);
 gulp.task('default', dev);
