@@ -33,5 +33,5 @@ export const path = {
    distFolder,
    srcFolder,
    rootFolder,
-   ftp: ``,
+   ftp: `test`,
 };

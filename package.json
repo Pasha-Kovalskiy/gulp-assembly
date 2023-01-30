@@ -10,6 +10,7 @@
       "fonts": "gulp fonts",
       "svgicons": "gulp svgicons",
       "zip": "gulp zip --build",
+      "ftp": "gulp ftp --build",
       "test": "echo \"Error: no test specified\" && exit 1"
    },
    "repository": {
@@ -39,9 +40,11 @@
       "gulp-sass": "^5.1.0",
       "gulp-svg-sprite": "^2.0.1",
       "gulp-ttf2woff2": "^4.0.1",
+      "gulp-util": "^3.0.8",
       "gulp-version-number": "^0.2.4",
       "gulp-zip": "^5.1.0",
       "sass": "^1.57.1",
+      "vinyl-ftp": "^0.6.1",
       "webpack": "^5.75.0",
       "webpack-stream": "^7.0.0"
    }
