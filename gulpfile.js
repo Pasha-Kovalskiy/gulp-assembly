@@ -7,6 +7,8 @@ import { plugins } from './gulp/config/plugins.js';
 
 // Global object of our gulp assembly
 global.app = {
+   isBuild: process.argv.includes('--build'),
+   isDev: !process.argv.includes('--build'),
    path,
    gulp,
    plugins,
@@ -43,8 +45,13 @@ const watcher = () => {
 
 // Scripts for executing tasks
 const dev = gulp.series(mainTask, gulp.parallel(watcher, server));
+const build = gulp.series(mainTask);
+
+export { dev };
+export { build };
 
 // Assembly gulp in action
 gulp.task('svgicons', svgIcons);
 gulp.task('fonts', fonts);
-gulp.task('default', dev);
+gulp.task('build', build);
+gulp.task('dev', dev);
