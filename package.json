@@ -9,6 +9,7 @@
       "build": "gulp build --build",
       "fonts": "gulp fonts",
       "svgicons": "gulp svgicons",
+      "zip": "gulp zip --build",
       "test": "echo \"Error: no test specified\" && exit 1"
    },
    "repository": {
@@ -39,6 +40,7 @@
       "gulp-svg-sprite": "^2.0.1",
       "gulp-ttf2woff2": "^4.0.1",
       "gulp-version-number": "^0.2.4",
+      "gulp-zip": "^5.1.0",
       "sass": "^1.57.1",
       "webpack": "^5.75.0",
       "webpack-stream": "^7.0.0"
