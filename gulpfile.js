@@ -26,6 +26,7 @@ import {
    ttfToWoff2,
    fontsStyle,
 } from './gulp/tasks/fonts.js';
+import { svgIcons } from './gulp/tasks/svgIcons.js';
 
 const copyFiles = gulp.parallel(copy, html, scss, js, images);
 const fonts = gulp.series(otfToTtf, ttfToWoff, ttfToWoff2, fontsStyle);
@@ -44,5 +45,6 @@ const watcher = () => {
 const dev = gulp.series(mainTask, gulp.parallel(watcher, server));
 
 // Assembly gulp in action
+gulp.task('svgicons', svgIcons);
 gulp.task('fonts', fonts);
 gulp.task('default', dev);
